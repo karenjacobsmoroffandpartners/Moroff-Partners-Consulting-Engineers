@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&P | Structural & Civil Engineering Consultants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#CC191E',
+                        brandBlack: '#0A0A0A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'Roboto Mono', monospace; }
+        .bg-grid { background-image: radial-gradient(#222 1px, transparent 1px); background-size: 40px 40px; }
+        .clip-path-slant { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+    </style>
+</head>
+<body class="bg-white text-brandBlack antialiased" x-data="{ mobileMenu: false }">
+
+    <nav class="fixed w-full z-50 bg-brandBlack/95 text-white backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brandRed flex items-center justify-center font-black text-xl">M</div>
+                <div class="text-xl font-black tracking-tighter uppercase">Moroff <span class="text-brandRed">&</span> Partners</div>
+            </div>
+            
+            <div class="hidden md:flex space-x-10 uppercase text-[11px] font-bold tracking-[0.2em]">
+                <a href="#home" class="hover:text-brandRed transition">Home</a>
+                <a href="#about" class="hover:text-brandRed transition">Expertise</a>
+                <a href="#services" class="hover:text-brandRed transition">Services</a>
+                <a href="#projects" class="hover:text-brandRed transition">Portfolio</a>
+                <a href="#contact" class="px-4 py-2 border border-brandRed text-brandRed hover:bg-brandRed hover:text-white transition">Contact Us</a>
+            </div>
+
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-brandRed">
+                <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg x-show="mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="mobileMenu" x-transition.opacity class="fixed inset-0 top-[72px] bg-brandBlack z-40 md:hidden p-8 flex flex-col space-y-8 uppercase font-black text-2xl tracking-widest">
+            <a @click="mobileMenu = false" href="#home">Home</a>
+            <a @click="mobileMenu = false" href="#about">Expertise</a>
+            <a @click="mobileMenu = false" href="#services">Services</a>
+            <a @click="mobileMenu = false" href="#projects">Portfolio</a>
+            <a @click="mobileMenu = false" href="#contact" class="text-brandRed">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen bg-brandBlack flex items-center pt-20">
+        <div class="absolute inset-0 opacity-30">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-brandBlack via-brandBlack/80 to-transparent"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 z-10">
+            <div class="inline-block px-3 py-1 bg-brandRed text-white mono text-[10px] tracking-[0.4em] uppercase mb-6">Structural Excellence</div>
+            <h1 class="text-5xl md:text-9xl font-black text-white leading-[0.9] mb-8">
+                DEFINING<br><span class="text-transparent" style="-webkit-text-stroke: 1px #CC191E;">THE CORE.</span>
+            </h1>
+            <p class="text-gray-400 max-w-xl text-lg md:text-xl mb-12 font-light leading-relaxed">
+                Consulting structural and civil engineers specializing in high-end residential, commercial, and industrial infrastructure across Southern Africa.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5">
+                <a href="#projects" class="group relative px-12 py-5 bg-white text-brandBlack font-black uppercase tracking-widest text-sm overflow-hidden transition-all hover:pr-16">
+                    <span class="relative z-10">Our Portfolio</span>
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all">→</span>
+                </a>
+                <a href="#contact" class="px-12 py-5 border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all">
+                    Start a Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 px-6 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+            <div class="lg:w-1/2">
+                <h3 class="text-brandRed font-black uppercase tracking-[0.3em] text-sm mb-6">Expertise</h3>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight uppercase">Strength in <br>Precision.</h2>
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                    Moroff and Partners (M&P) provides innovative engineering solutions tailored to the unique architectural requirements of modern construction. We believe that great structures are the result of a seamless partnership between form and function.
+                </p>
+                <div class="grid grid-cols-2 gap-8 border-t border-gray-100 pt-8">
+                    <div>
+                        <span class="block text-3xl font-black text-brandRed uppercase">25+</span>
+                        <span class="mono text-[10px] uppercase tracking-tighter text-gray-500">Years of Legacy</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-black text-brandBlack uppercase">1k+</span>
+                        <span class="mono text-[10px] uppercase tracking-tighter text-gray-500">Global Designs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 relative">
+                <div class="aspect-square bg-brandBlack relative z-10 p-2">
+                    <img src="https://images.unsplash.com/photo-1517089534706-33c2ec389b07?q=80&w=1974" class="w-full h-full object-cover grayscale opacity-80">
+                </div>
+                <div class="absolute -top-4 -right-4 w-full h-full border-4 border-brandRed z-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 bg-brandBlack text-white bg-grid relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl md:text-7xl font-black uppercase mb-4">Services</h2>
+                <div class="w-24 h-2 bg-brandRed mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-0">
+                <div class="p-12 border border-white/5 hover:bg-brandRed transition-all duration-500 group">
+                    <span class="mono text-brandRed group-hover:text-white text-xl mb-8 block font-bold">01/</span>
+                    <h4 class="text-2xl font-black mb-6 uppercase">Structural <br>Analysis</h4>
+                    <p class="text-gray-500 group-hover:text-white/80 text-sm leading-relaxed">Complex load-bearing analysis for reinforced concrete, structural steel, and high-performance timber frames.</p>
+                </div>
+                <div class="p-12 border border-white/5 bg-white/[0.02] hover:bg-brandRed transition-all duration-500 group">
+                    <span class="mono text-brandRed group-hover:text-white text-xl mb-8 block font-bold">02/</span>
+                    <h4 class="text-2xl font-black mb-6 uppercase">Civil <br>Infrastructure</h4>
+                    <p class="text-gray-500 group-hover:text-white/80 text-sm leading-relaxed">Bulk earthworks, sustainable drainage systems, and road infrastructure for large-scale developments.</p>
+                </div>
+                <div class="p-12 border border-white/5 hover:bg-brandRed transition-all duration-500 group">
+                    <span class="mono text-brandRed group-hover:text-white text-xl mb-8 block font-bold">03/</span>
+                    <h4 class="text-2xl font-black mb-6 uppercase">BIM <br>Consultancy</h4>
+                    <p class="text-gray-500 group-hover:text-white/80 text-sm leading-relaxed">Leveraging Revit and advanced 3D modeling for clash detection and collaborative architectural workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <h2 class="text-5xl font-black uppercase">Recent <span class="text-brandRed">Works</span></h2>
+                <p class="text-gray-500 max-w-xs mono text-xs uppercase tracking-widest">Selected highlights from our structural portfolio.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 md:grid-rows-2 gap-4 h-[1000px] md:h-[600px]">
+                <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale">
+                    <div class="absolute inset-0 bg-brandBlack/60 opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end text-white">
+                        <h4 class="text-3xl font-black uppercase">The Point</h4>
+                        <p class="mono text-xs text-brandRed">Structural Commercial</p>
+                    </div>
+                </div>
+                <div class="md:col-span-2 relative group overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale">
+                    <div class="absolute inset-0 bg-brandBlack/60 opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end text-white">
+                        <h4 class="text-3xl font-black uppercase">Boutique Villas</h4>
+                        <p class="mono text-xs text-brandRed">Luxury Residential</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1503387762-592dee58440c" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale">
+                    <div class="absolute inset-0 bg-brandBlack/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <h4 class="text-xl font-black uppercase">Steel Hub</h4>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale">
+                    <div class="absolute inset-0 bg-brandBlack/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <h4 class="text-xl font-black uppercase">Urban Bridge</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-brandBlack text-white grid md:grid-cols-2 overflow-hidden">
+                <div class="p-12 md:p-20">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase mb-8 leading-none">Let's build <br>something <span class="text-brandRed italic">solid.</span></h2>
+                    <div class="space-y-6 mt-12">
+                        <div>
+                            <span class="block mono text-[10px] text-gray-500 uppercase mb-1">Email</span>
+                            <a href="mailto:office@m-p.co.za" class="text-xl font-bold hover:text-brandRed transition">office@m-p.co.za</a>
+                        </div>
+                        <div>
+                            <span class="block mono text-[10px] text-gray-500 uppercase mb-1">Inquiries</span>
+                            <a href="tel:+27214182000" class="text-xl font-bold hover:text-brandRed transition">+27 (0) 21 418 2000</a>
+                        </div>
+                        <div class="pt-8 flex gap-4">
+                            <div class="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-brandRed hover:text-brandRed cursor-pointer transition">LI</div>
+                            <div class="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-brandRed hover:text-brandRed cursor-pointer transition">IG</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-12 md:p-20 bg-white text-brandBlack">
+                    <form class="space-y-6">
+                        <div class="group border-b border-brandBlack/10 focus-within:border-brandRed transition">
+                            <label class="block mono text-[10px] uppercase text-gray-400">Full Name</label>
+                            <input type="text" class="w-full py-3 outline-none bg-transparent">
+                        </div>
+                        <div class="group border-b border-brandBlack/10 focus-within:border-brandRed transition">
+                            <label class="block mono text-[10px] uppercase text-gray-400">Email Address</label>
+                            <input type="email" class="w-full py-3 outline-none bg-transparent">
+                        </div>
+                        <div class="group border-b border-brandBlack/10 focus-within:border-brandRed transition">
+                            <label class="block mono text-[10px] uppercase text-gray-400">Project Description</label>
+                            <textarea rows="4" class="w-full py-3 outline-none bg-transparent resize-none"></textarea>
+                        </div>
+                        <button class="w-full bg-brandRed text-white py-5 font-black uppercase tracking-widest hover:bg-brandBlack transition-all">Send Brief</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brandBlack text-white py-12 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-8 md:mb-0">
+                <div class="text-2xl font-black tracking-tighter uppercase mb-2">Moroff <span class="text-brandRed">&</span> Partners</div>
+                <p class="text-gray-500 text-[10px] mono uppercase tracking-widest leading-loose">
+                    Structural & Civil Engineering Consultants <br>
+                    Cape Town | Johannesburg | Durban
+                </p>
+            </div>
+            <div class="text-[10px] text-gray-600 mono uppercase tracking-widest">
+                &copy; 2026 M&P Engineering. <br class="md:hidden"> Built for Strength.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
